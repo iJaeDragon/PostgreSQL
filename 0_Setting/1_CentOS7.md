@@ -224,20 +224,41 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 
 ## 방화벽 설정
 
-### 포트 오픈
+### firewalld 서비스 상태 확인
 
 ```
-  sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+  # sudo systemctl status firewalld
+```
+
+### 서비스가 실행 중이 아닌경우 시작
+
+```
+  # sudo systemctl start firewalld
+```
+
+### 부팅 시 자동으로 시작되도록 설정
+
+```
+  # sudo systemctl enable firewalld
+```
+
+#### 서비스가 실행중이 아니라면
+
+### 포트 오픈
+#### PostgreSQL 디폴트 포트 : 5432
+
+```
+  # sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
 ```
 
 ### 방화벽 설정 재로드
 
 ```
-  sudo firewall-cmd --reload
+  # sudo firewall-cmd --reload
 ```
 
-### 오픈 포트 확
+### 오픈 포트 확인
 
 ```
-  sudo firewall-cmd --list-ports
+  # sudo firewall-cmd --list-ports
 ```
