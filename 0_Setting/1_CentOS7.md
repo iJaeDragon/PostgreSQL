@@ -105,6 +105,9 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 
 ### PostgreSQL Admin Password 설정
 
+#### PostgreSQL은 기본적으로 peer 인증으로 설정되어 있다. 
+#### peer 인증은 운영 체제의 사용자와 PostgreSQL 사용자 이름이 일치해야 하며, 따로 비밀번호를 입력하지 않아도 된다.
+
 ```
   # sudo su - postgres
   # psql -c "alter user postgres with password '원하는비밀번호'"
@@ -138,6 +141,19 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 ```
 
 ## 계정&데이터베이스 생성
+
+### 로그인 인증방식 변경
+#### peer 방식으로 진행할 경우 OS 사용자 계정을 만들어야 하기 때문에 그냥 md5 인증방식으로 변경
+
+```
+ # sudo sudo vi /var/lib/pgsql/13/data/pg_hba.conf
+
+
+  # md5로 방식 변경
+  # local   all             all                                     peer
+  local   all             all                                     md5
+```
+
 
 ### 관리자 로그인
 
