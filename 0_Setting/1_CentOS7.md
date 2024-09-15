@@ -213,10 +213,31 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 
 ### User 로그인
 #### User 목록에서 조회된 유저명으로 입력 (대소문자 구분도 필요한 경우가 있음)
+
 ```
   # psql -U [유저명] -d [데이터베이스명]
 
   or
 
   # psql -U [유저명] -d [데이터베이스명] -h localhost -p 5432
+```
+
+## 방화벽 설정
+
+### 포트 오픈
+
+```
+  sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+```
+
+### 방화벽 설정 재로드
+
+```
+  sudo firewall-cmd --reload
+```
+
+### 오픈 포트 확
+
+```
+  sudo firewall-cmd --list-ports
 ```
