@@ -201,11 +201,17 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 ### User에게 데이티베이스 권한 부여
 
 ```
-  GRANT ALL PRIVILEGES ON DATABASE [데이터베아스명] TO [유저명];
+  GRANT ALL PRIVILEGES ON DATABASE [데이터베이스명] TO [유저명];
 ```
 
 ### psql 종료
 
 ```
   \q
+```
+
+### User 로그인
+#### User 목록에서 조회된 유저명으로 입력 (대소문자 구분도 필요한 경우가 있음)
+```
+  psql -U [유저명] -d [데이터베이스명]
 ```
