@@ -119,6 +119,7 @@ date 커맨드로 현재 시간을 확인하고 실제 시간과 차이가 많�
 ```
   # sudo sudo vi /var/lib/pgsql/13/data/postgresql.conf
   listen_addresses = '*'
+  port = 5432
 ```
 
 ```
